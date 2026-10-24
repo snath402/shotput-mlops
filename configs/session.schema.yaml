@@ -1,0 +1,32 @@
+# Initial data contract. Keep participant_id pseudonymous.
+schema_version: 1
+required:
+  - session_id
+  - participant_id
+  - recorded_at
+  - activity
+  - clip
+fields:
+  session_id: {type: string, description: Stable ID for the training session}
+  participant_id: {type: string, description: Pseudonymous athlete ID}
+  recorded_at: {type: datetime, description: ISO-8601 timestamp with timezone}
+  activity: {type: string, enum: [shot_put]}
+  throw_style: {type: string, enum: [glide, rotational, unknown]}
+  clip:
+    type: object
+    required: [relative_path]
+    properties:
+      relative_path: {type: string, description: Path relative to data/raw}
+      sha256: {type: string, description: Filled by intake pipeline}
+      camera_view: {type: string, enum: [side, rear, front, oblique, unknown]}
+      fps: {type: number}
+      width: {type: integer}
+      height: {type: integer}
+  outcome:
+    type: object
+    properties:
+      distance_m: {type: number}
+      valid_throw: {type: boolean}
+      measurement_source: {type: string, enum: [official, tape, estimate, unknown]}
+  athlete_notes: {type: string}
+  coach_notes: {type: string}

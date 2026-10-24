@@ -1,0 +1,22 @@
+# Athlete data and generated artifacts
+data/raw/*
+data/processed/*
+data/annotations/*
+models/*
+reports/private/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/annotations/.gitkeep
+!models/.gitkeep
+
+# Python/tooling
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+dist/
+build/
+*.egg-info/
+.env

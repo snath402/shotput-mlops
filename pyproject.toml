@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shotput-mlops"
+version = "0.1.0"
+description = "Evidence-linked shot-put video analysis and longitudinal training insights"
+requires-python = ">=3.11"
+dependencies = ["opencv-python-headless>=4.8"]
+
+[project.scripts]
+shotput-audit = "shotput_mlops.intake:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

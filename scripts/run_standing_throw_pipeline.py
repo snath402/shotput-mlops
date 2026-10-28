@@ -180,7 +180,7 @@ def main() -> None:
     frame_dir = processed / f"{stem}_frames"
     pose_csv = processed / f"{stem}_pose_window_{window}_with_feet.csv"
     knee_csv = processed / f"{stem}_knee_angles_{window}.csv"
-    knee_plot = processed / f"{stem}_knee_angles_{window}.png"
+    knee_plot = processed / f"{stem}_knee_angles_release_aligned.png"
     hip_csv = processed / f"{stem}_hip_proxy_{window}.csv"
     signals_csv = processed / f"{stem}_kinetic_chain_signals_v3.csv"
     signals_plot = processed / f"{stem}_kinetic_chain_signals_v3.png"
@@ -269,6 +269,8 @@ def main() -> None:
         sys.executable, str(root / "scripts" / "plot_knee_angles.py"),
         "--input", str(knee_csv), "--output", str(knee_plot),
         "--throwing-hand", hand, "--release-frame", str(release),
+        "--fps", str(fps), "--before-seconds", str(before),
+        "--after-seconds", str(after),
     ], root, [knee_plot])
     run_stage("8/10 Plot individual movement signals", [
         sys.executable, str(root / "scripts" / "plot_individual_kinetic_chain_signals.py"),

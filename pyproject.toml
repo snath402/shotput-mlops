@@ -7,7 +7,7 @@ name = "shotput-mlops"
 version = "0.1.0"
 description = "Evidence-linked shot-put video analysis and longitudinal training insights"
 requires-python = ">=3.11"
-dependencies = ["opencv-python-headless>=4.8"]
+dependencies = ["opencv-contrib-python>=4.8","mediapipe==1.1.1",]
 
 [project.scripts]
 shotput-audit = "shotput_mlops.intake:main"

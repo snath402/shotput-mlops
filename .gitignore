@@ -20,3 +20,9 @@ dist/
 build/
 *.egg-info/
 .env
+
+data/athletes/
+
+# Local IDE metadata and athlete-specific analysis outputs
+.idea/
+data/comparisons/
